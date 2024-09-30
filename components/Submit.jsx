@@ -4,12 +4,14 @@ import { Link, Redirect, router } from 'expo-router';
 
 export const Submit = ({isCorrect}) => {
     const handlePress = (correct) => {
+        if (isCorrect === null) {
+            return;
+        }
+        
         if (correct) {
             router.push('/correct');
-            console.log(correct)
         } else {
             router.push('/incorrect');
-            console.log(correct)
         }
     }
 

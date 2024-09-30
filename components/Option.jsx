@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
         elevation: 8,
         borderRadius: 10,
         padding: 10,
-        marginVertical: 35,
+        marginVertical: 25,
         marginHorizontal: 16,
         width: 300,
         shadowOpacity: 0.25,
@@ -34,6 +34,8 @@ const styles = StyleSheet.create({
     notPressed: {
         shadowColor: "#000000",
         backgroundColor: "#D6D6D6",
+        borderColor: 'rgba(150, 150, 150, 0)',
+        borderWidth: 4,
     },
     text: {
         fontSize: 24,

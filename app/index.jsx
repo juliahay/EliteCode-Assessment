@@ -18,7 +18,7 @@ const solution = 122;
 
 
 export default function App() {
-  const [correctAnswer, setCorrectAnswer] = useState(false);
+  const [correctAnswer, setCorrectAnswer] = useState(null);
   const [selectedID, setSelectedID] = useState(null);
   
   
