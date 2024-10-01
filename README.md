@@ -4,8 +4,7 @@ For Elite Code's Frontend Developer Internship, they asked that I design and cod
 <img src="https://github.com/juliahay/EliteCode-Assessment/blob/c5e5fe9cf1799a3246f323e3fca2055230d80f1d/assets/AppDemoNEW.png" height='500'>
 
 ## How to Run the Application
-- Download this code
-- Make sure Node.js is installed on your computer. You can download that [here](https://nodejs.org/en)
+- Download the code from this repository
 - The easiest way to run this application is through using the Expo Go app on your phone. 
     - Download Expo Go onto your device.
 - Navigate into the folder containing the code and run `npx expo start`
