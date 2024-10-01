@@ -6,6 +6,8 @@ const RootLayout = () => {
   return (
     <Stack>
       <Stack.Screen name="index" options={{headerShown: false}} />
+      <Stack.Screen name="incorrect" options={{headerShown: false}} />
+      <Stack.Screen name="correct" options={{headerShown: false}} />
     </Stack>
     
   )

@@ -1,13 +1,38 @@
-import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity, Animated, Easing, Button } from 'react-native'
 import { Link, Redirect, router } from 'expo-router';
-import React from 'react'
+import { React, useRef } from 'react'
 
-const hint = "Think about how JavaScript handels different data types"
+const hint = "Think about how JavaScript handles different data types"
 
 const Incorrect = () => {
+  const animation = useRef(null);
+  const scale = useRef(new Animated.Value(0)).current;
+  const position = useRef(new Animated.Value(1)).current;
+
+  const buttonAnimation = () => {
+
+    animation.current = Animated.sequence([
+      Animated.timing(scale, {
+        toValue: 1.2,
+        duration: 700,
+        useNativeDriver: true,
+      }),
+      Animated.timing(scale, {
+        toValue: 1,
+        duration: 500,
+        useNativeDriver: true,
+      }),
+    ])
+
+    animation.current.start();
+  };
+
+
   const handlePress = () => {
     router.push('/');
   }
+
+  setTimeout(buttonAnimation, 300)
 
   return (
     <SafeAreaView style={styles.layout}>
@@ -21,9 +46,11 @@ const Incorrect = () => {
       </View>
       <View style={styles.textLayout}>
         <Text style={[styles.text, styles.tryagain]}>Wanna try again?</Text>
+        <Animated.View style={{transform: [{scale}]}}>
         <TouchableOpacity style={styles.button} onPress={handlePress}>
               <Text style={[styles.text, styles.buttonText]}>Retry</Text>
         </TouchableOpacity>
+        </Animated.View>
       </View>
 
       

@@ -1,19 +1,44 @@
-import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity, Animated } from 'react-native'
 import { Link, Redirect, router } from 'expo-router';
-import React from 'react'
+import { React, useRef } from 'react'
+import LottieView from 'lottie-react-native'
 
 const badge = "JavaScript Master"
 
 const Correct = () => {
+  const animation = useRef(null);
+  const scale = useRef(new Animated.Value(0)).current;
+
+  const startAnimation = () => {
+
+    animation.current = Animated.sequence([
+      Animated.timing(scale, {
+        toValue: 1.4,
+        duration: 500,
+        useNativeDriver: true,
+      }),
+      Animated.timing(scale, {
+        toValue: 1,
+        duration: 500,
+        useNativeDriver: true,
+      }),
+    ])
+
+    animation.current.start();
+  };
+
   const handlePress = () => {
     router.push('/');
   }
 
+  setTimeout(startAnimation, 200)
+
   return (
     <SafeAreaView style={styles.layout}>
-      <View style={styles.textLayout}>
+      <Animated.View style={[styles.textLayout, {transform: [{scale}]}]}>
         <Text style={[styles.text, styles.top]}>Congratulations!</Text>
-      </View>
+      </Animated.View>
+      
       <View style={styles.textLayout}>
         <Text style={[styles.text, {lineHeight: 45}]}>
           You Earned the{"\n"}
@@ -27,6 +52,13 @@ const Correct = () => {
         </TouchableOpacity>
       </View>
 
+      <LottieView 
+        style={styles.animation}
+        source={require('../assets/confetti.json')}
+        autoPlay
+        loop={false}
+        resizeMode='cover'
+      />
       
     </SafeAreaView>
   )
@@ -69,10 +101,16 @@ const styles = StyleSheet.create({
   layout: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff',
-    flex: 1
+    backgroundColor: 'transparent',
+    flex: 1,
   },
   textLayout: {
     margin: 30,
+  },
+  animation: {
+    top: 0, right: 0, left: 0, bottom: 0,
+    zIndex: 1000,
+    position: 'absolute',
+    pointerEvents: 'none',
   }
 })
