@@ -1,7 +1,7 @@
 # Elite Code Assessment
 For Elite Code's Frontend Developer Internship, they asked that I design and code a small multiple choice application that can be used  to test users on coding concepts. This repository contains the code for the application I made. I use React Native to code the application and Expo to run it. See the instructions below for how to run the application yourself.
 
-[![Watch the video]()](https://raw.githubusercontent.com/juliahay/EliteCode-Assessment/main/Video/AppDemoShort.mp4)
+[![DEMO]()](https://raw.githubusercontent.com/juliahay/EliteCode-Assessment/master/Video/AppDemoShort.mp4)
 
 ## How to Run the Application
 - Download this code
